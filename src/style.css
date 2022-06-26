@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+}
+.logoContainer{
+    text-align: center;
+
+}
+.logos {
+    height: 10%;
+    width: 10%;
+    transition: all .2s ease-in-out;
+}
+
+.logos:hover{
+    transform: scale(1.20); 
+}
+
+.bar {
+    text-align: center;
+    display: inline-block;
+    background-color: slategrey;
+    color: white;
+    width: 100%;
+}
+
+.App {
+    background-color: salmon;
+    height: 100%;
+}
