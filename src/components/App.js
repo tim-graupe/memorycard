@@ -1,26 +1,73 @@
 import React, { Component, useState } from "react";
 import  logoArray from "./logos";
-import LevelOne from "./LevelOne";
 
 import "../style.css";
 import _ from "lodash";
-
+const pickedTeams = []
 function App() {
+  const displayTeams = (num) => {
+    let teams = []
+    for (let i = 0; i < num; i++) {
+      teams.push(shuffledArray[i])
+    }
+    return teams
+  }
+
   const shuffledArray = _.shuffle(logoArray)
   const [score, setScore] = useState(0);
   const [highscore, setHighscore] = useState(0);
-  const [teams, setTeams] = useState([shuffledArray[0], shuffledArray[1], shuffledArray[2], shuffledArray[3]])
+  const [teams, setTeams] = useState(displayTeams(4))
+  
 
+  const clearArray = () => {
+    while (pickedTeams.length > 0) {
+      pickedTeams.pop()
+    }
+    console.log(pickedTeams.length)
+
+  }
+
+  const newGame = () => {
+    clearArray()
+    setScore(0)
+    setTeams(displayTeams(4))
+  }
 
   const handleClick = (e) => {
+    if (pickedTeams.includes(e.target.alt)){
+      newGame()
+      return
+    }
+    pickedTeams.push(e.target.alt)
 
     setTeams(_.shuffle(teams))
     setScore(score + 1);
     if (score >= highscore) {
       setHighscore(highscore + 1);
     }
-    if (score === 3) {
-      setTeams([shuffledArray[0], shuffledArray[1], shuffledArray[2], shuffledArray[3], shuffledArray[4], shuffledArray[5], shuffledArray[6], shuffledArray[7]])
+    if (score > 2) {
+      clearArray()
+      setTeams(displayTeams(8))
+    }
+
+    if (score > 7) {
+      clearArray()
+      setTeams(displayTeams(16))
+    }
+
+    if (score > 15) {
+      clearArray()
+      setTeams(displayTeams(24))
+    }
+
+    if (score > 23) {
+      clearArray()
+      setTeams(displayTeams(32))
+    }
+
+    if (score > 31){
+      alert("You won! Great job.")
+      newGame()
     }
   };
 
