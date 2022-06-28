@@ -1,8 +1,7 @@
 import React, { Component, useState } from "react";
 import  logoArray from "./logos";
-
 import "../style.css";
-import _ from "lodash";
+import _, { pick } from "lodash";
 const pickedTeams = []
 function App() {
   const displayTeams = (num) => {
@@ -16,6 +15,7 @@ function App() {
   const shuffledArray = _.shuffle(logoArray)
   const [score, setScore] = useState(0);
   const [highscore, setHighscore] = useState(0);
+  const [round, setRound] = useState(0)
   const [teams, setTeams] = useState(displayTeams(4))
   
 
@@ -23,10 +23,9 @@ function App() {
     while (pickedTeams.length > 0) {
       pickedTeams.pop()
     }
-    console.log(pickedTeams.length)
 
   }
-
+//You are so close. Try useffect to fix the reload issues https://stackoverflow.com/questions/69373224/comparing-two-state-variables-in-react
   const newGame = () => {
     clearArray()
     setScore(0)
@@ -45,29 +44,36 @@ function App() {
     if (score >= highscore) {
       setHighscore(highscore + 1);
     }
-    if (score > 2) {
-      clearArray()
+    if (pickedTeams.length === 4 && score === 3) {
       setTeams(displayTeams(8))
+      clearArray()
+
     }
 
-    if (score > 7) {
-      clearArray()
+    if (pickedTeams.length === 8 && score === 11) {
       setTeams(displayTeams(16))
+      clearArray()
     }
 
-    if (score > 15) {
-      clearArray()
+    if (pickedTeams.length === 16 && score === 27) {
+  
       setTeams(displayTeams(24))
-    }
-
-    if (score > 23) {
       clearArray()
-      setTeams(displayTeams(32))
     }
 
-    if (score > 31){
+    if (pickedTeams.length === 24 && score === 51) {
+  
+      setTeams(displayTeams(32))
+      clearArray()
+    }
+
+    if (pickedTeams.length === 32){
       alert("You won! Great job.")
       newGame()
+    }
+
+    if (e.target.alt === "NYR"){
+      console.log(">rags")
     }
   };
 
