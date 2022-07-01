@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tim-graupe/memorycard/static/css/main.367abe31.css",
+    "main.js": "/tim-graupe/memorycard/static/js/main.87a16e84.js",
+    "static/js/787.36728232.chunk.js": "/tim-graupe/memorycard/static/js/787.36728232.chunk.js",
+    "index.html": "/tim-graupe/memorycard/index.html",
+    "main.367abe31.css.map": "/tim-graupe/memorycard/static/css/main.367abe31.css.map",
+    "main.87a16e84.js.map": "/tim-graupe/memorycard/static/js/main.87a16e84.js.map",
+    "787.36728232.chunk.js.map": "/tim-graupe/memorycard/static/js/787.36728232.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.367abe31.css",
+    "static/js/main.87a16e84.js"
+  ]
+}
