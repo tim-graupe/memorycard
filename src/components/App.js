@@ -25,7 +25,6 @@ function App() {
     }
 
   }
-//You are so close. Try useffect to fix the reload issues https://stackoverflow.com/questions/69373224/comparing-two-state-variables-in-react
   const newGame = () => {
     clearArray()
     setScore(0)
